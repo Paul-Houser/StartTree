@@ -1,2 +1,2 @@
 # StartTree
-A terminal themed home page replicating the tree comand in a terminal.
+A terminal-style home page replicating the tree comand.
