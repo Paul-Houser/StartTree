@@ -4,6 +4,7 @@ import yaml
 import os
 from os.path import expanduser
 from shutil import copyfile
+from bs4 import BeautifulSoup
 
 # get home directory
 home = expanduser("~")
@@ -14,6 +15,12 @@ config_path = home + '/.config/StartTree/config.yaml'
 
 # get cache path
 cache_dir = home + '/.cache/StartTree'
+
+def prettifyHTML():
+    html = "<div><h1>Hello</h1></div>"
+    soup = BeautifulSoup(html, 'html.parser')
+    prettyHTML = print(soup.prettify())
+    return prettyHTML
 
 def setup():
     # check if .config path exists
@@ -76,7 +83,7 @@ def gen_html():
 
     # open files
     skeleton_html = open('./skeletons/index.html', 'r')
-    cache_html = open(cache_dir + '/index.html', 'w')
+    cache_html = open(cache_dir + '/index.html', 'w+')
 
     # copy skeleton_html to cache_html until Column Start comment
     lines = skeleton_html.readlines()
@@ -86,11 +93,15 @@ def gen_html():
         else:
             cache_html.write(line)
 
+    prettifyHTML()
+
     # close files
     skeleton_html.close()
     cache_html.close()
 
     print("Done!")
+
+
 
 if __name__ == '__main__':
     setup()
