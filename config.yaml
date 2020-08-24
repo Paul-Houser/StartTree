@@ -1,22 +1,15 @@
-Tree_1:
+font_size: 22
+theme: void
+tree_1:
   general:
-    nextcloud: "https://cloud.paulhouser.xyz/"
-    github: "https://www.github.com/Paul-Houser/"
-    wwu-gitlab: "https://gitlab.cs.wwu.edu/"
+    github: "https://www.github.com/"
     gmail: "https://mail.google.com/"
   reddit:
     frontpage: 
       - "https://www.reddit.com/"
       - "front page"
-    profile: "https://www.reddit.com/u/P_swizzles/"
     unixporn: "https://www.reddit.com/r/unixporn/"
-    archlinux: "https://www.reddit.com/r/archlinux/"
-Tree_2:
-  school:
-    canvas: "https://wwu.instructure.com/"
-    degreeworks: "https://dw.wwu.edu/Dashboard/dashboard"
-    outlook: "https://outlook.office.com"
-    web4u: "https://admin.wwu.edu/pls/wwis/twbkwbis.P_GenMenu?name=bmenu.P_MainMnu"
+tree_2:
   other:
     archwiki: 
       - "https://archlinux.org/"

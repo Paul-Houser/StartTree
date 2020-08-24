@@ -56,17 +56,18 @@ def gen_col_headers(html_file, file_dict):
 
 def gen_columns(html_file, file_dict):
     for key in file_dict:
-        html_file.write("<div class=\"column\">\n")
-        html_file.write("  <div class=\"tree\">\n")
-        html_file.write("    <h1>.</h1>\n")
-        html_file.write("    <ul>\n")
+        if key.split("_")[0] == "tree":
+            html_file.write("<div class=\"column\">\n")
+            html_file.write("  <div class=\"tree\">\n")
+            html_file.write("    <h1>.</h1>\n")
+            html_file.write("    <ul>\n")
 
-        # generate the column headers
-        gen_col_headers(html_file, file_dict[key])
+            # generate the column headers
+            gen_col_headers(html_file, file_dict[key])
 
-        html_file.write("    </ul>\n")
-        html_file.write("  </div>\n")
-        html_file.write("</div>\n")
+            html_file.write("    </ul>\n")
+            html_file.write("  </div>\n")
+            html_file.write("</div>\n")
 
 
 def gen_html(file_dict):
@@ -98,8 +99,36 @@ def gen_html(file_dict):
 
     print("Done!")
 
+def gen_style(file_dict):
+    skeleton_style = open('./skeletons/style.css', 'r')
+    cache_style = open(cache_dir + '/styles/style.css', 'w')
+
+    # find style attributes in file_dict
+    font_size = 20
+    theme = "void"
+    for key in file_dict:
+        if key == "font_size":
+            font_size = file_dict[key]
+        if key == "theme":
+            theme = file_dict[key]
+
+    if theme == "pywal":
+        theme = home + '/.cache/wal/colors.css'
+    else:
+        theme = '../themes/' + theme + '.css'
+
+    cache_style.write("@import url('" + theme + "');\n")
+
+    lines = skeleton_style.readlines()
+    for line in lines:
+        if line == "/* font-size */\n":
+            cache_style.write("font-size: " + str(font_size) + "px;\n")
+        else:
+            cache_style.write(line)
+
 def main():
     file_dict = parse_yaml()
+    gen_style(file_dict)
     gen_html(file_dict)
 
 if __name__ == '__main__':

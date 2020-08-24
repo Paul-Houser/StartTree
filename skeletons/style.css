@@ -1,4 +1,3 @@
-@import url('/home/paul/.cache/wal/colors.css');
 @font-face {
     font-family: "Roboto Mono";
     src: url("./Hack.ttf");
@@ -16,7 +15,7 @@
 }
 
 html {
-    font-size: 22px;
+/* font-size */
 }
 
 body {
