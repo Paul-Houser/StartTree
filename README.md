@@ -9,8 +9,8 @@ A terminal-style home page replicating the tree command.
 - [x] Add screenshot to README.md
 - [x] add install script
   - [ ] Should allow selection of search engine
-  - [ ] Should allow for multiple columns
-  - [ ] User makes a 'config.yaml' file that is parsed and translated into the HTML
+  - [x] Should allow for multiple columns
+  - [x] User makes a 'config.yaml' file that is parsed and translated into the HTML
 
 ```yaml
 Tree_1:
