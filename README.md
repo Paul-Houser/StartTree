@@ -36,3 +36,23 @@ tree_1:
 A variety of themes can be found in the `themes` directory. 
 
 If one wishes to dynamically theme from `pywal`, they may select `pywal` as their chosen theme in `config.yaml`.
+
+# Docker
+
+In order to circumvent some restrictions on browsers for what is allowed as a "Home" and "New Tab" page, you can host StartTree as a lightweight `NGINX` server through `docker-compose`.
+
+To set this up, one must have `docker` and `docker-compose` installed and configured. Then, go into the directory where you cloned `StartTree`, and run
+
+```bash
+cd docker
+vim docker-compose.yaml # edit specifics to your liking
+docker-compose -f docker-compose.yaml up -d
+```
+
+This will make the `NGINX` server persist across reboots. You can point your browser's new tab and home page to `localhost:p<port#>` and you should your startpage!
+
+### NOTE: 
+
+Currently, docker is unaware if a file changes on the fly (like generating a new colorscheme or adding new shortcuts), so you have to restart the container with
+
+`docker-compose -f docker-compose.yaml restart <servicename>`
