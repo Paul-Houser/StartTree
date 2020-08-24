@@ -1,8 +1,13 @@
+<p align="center">
+  <img src="/StartTree.png", title="StartTree"/>
+</p>
+
+
 # StartTree
 A terminal-style home page replicating the tree comand.
 
 ## TODO
-- [ ] Add screenshot to README.md
+- [x] Add screenshot to README.md
 - [ ] add install script
   - [ ] Should allow selection of search engine
   - [ ] Should allow for multiple columns
