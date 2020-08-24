@@ -16,10 +16,9 @@ config_path = home + '/.config/StartTree/config.yaml'
 # get cache path
 cache_dir = home + '/.cache/StartTree'
 
-def prettifyHTML():
-    html = "<div><h1>Hello</h1></div>"
+def prettifyHTML(html):
     soup = BeautifulSoup(html, 'html.parser')
-    prettyHTML = print(soup.prettify())
+    prettyHTML = soup.prettify()
     return prettyHTML
 
 def setup():
@@ -77,7 +76,7 @@ def print_keys(dictionary):
 
 def gen_list_indices(html_file, file_dict):
     for key in file_dict:
-        print(key)
+        print()
 
 def gen_col_headers(html_file, file_dict):
     for key in file_dict:
@@ -86,7 +85,7 @@ def gen_col_headers(html_file, file_dict):
         html_file.write("  <ul>\n")
 
         # generate list indices
-        gen_list_indices(html_file, file_dict)
+        gen_list_indices(html_file, file_dict[key])
 
         html_file.write("  </ul>\n")
         html_file.write("</li>\n")
@@ -111,7 +110,7 @@ def gen_html(file_dict):
 
     # open files
     skeleton_html = open('./skeletons/index.html', 'r')
-    cache_html = open(cache_dir + '/index.html', 'w')
+    cache_html = open(cache_dir + '/index.html', 'w+')
 
     # copy skeleton_html to cache_html until Column Start comment
     lines = skeleton_html.readlines()
@@ -120,6 +119,14 @@ def gen_html(file_dict):
             gen_columns(cache_html, file_dict)
         else:
             cache_html.write(line)
+
+    #  prettify
+    cache_html.seek(0)
+    pretty_string = cache_html.read()
+    pretty_string = prettifyHTML(pretty_string)
+    cache_html.close()
+    cache_html = open(cache_dir + '/index.html', 'w')
+    cache_html.write(pretty_string)
 
     # close files
     skeleton_html.close()
