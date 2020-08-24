@@ -21,11 +21,6 @@ config_path = home + '/.config/StartTree/config.yaml'
 # get cache path
 cache_dir = home + '/.cache/StartTree'
 
-def prettifyHTML(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    prettyHTML = soup.prettify()
-    return prettyHTML
-
 def setup():
     # check if .config path exists
     if not os.path.isdir(home + '/.config'):
@@ -56,6 +51,9 @@ def setup():
     if not os.path.isdir(cache_dir):
         print("Creating '" + cache_dir + "'...")
         os.mkdir(cache_dir)
+
+        print("symlinking themes")
+        os.symlink(os.getcwd() + '/themes', home + '/.cache/StartTree/themes')
 
         print("Creating '" + cache_dir + "/styles'")
         os.mkdir(cache_dir + '/styles')

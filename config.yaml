@@ -1,4 +1,5 @@
 font_size: 22
+theme: void
 tree_1:
   general:
     github: "https://www.github.com/"

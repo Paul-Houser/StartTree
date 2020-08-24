@@ -103,11 +103,21 @@ def gen_style(file_dict):
     skeleton_style = open('./skeletons/style.css', 'r')
     cache_style = open(cache_dir + '/styles/style.css', 'w')
 
+    # find style attributes in file_dict
     font_size = 20
+    theme = "void"
     for key in file_dict:
         if key == "font_size":
             font_size = file_dict[key]
-            break
+        if key == "theme":
+            theme = file_dict[key]
+
+    if theme == "pywal":
+        theme = home + '/.cache/wal/colors.css'
+    else:
+        theme = '../themes/' + theme + '.css'
+
+    cache_style.write("@import url('" + theme + "');\n")
 
     lines = skeleton_style.readlines()
     for line in lines:
