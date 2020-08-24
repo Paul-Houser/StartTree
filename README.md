@@ -5,22 +5,16 @@ A terminal-style home page replicating the tree command.
   <img src="/images/StartTree.png", title="StartTree"/>
 </p>
 
-<p align="center">
-  <img src="/images/void.png", title="void"/>
-</p>
+<span style="">
+  <p align="left">
+    <img src="/images/void.png", title="void" width=400/>
+  </p>
 
-<p align="center">
-  <img src="/images/forest.png", title="forest"/>
-</p>
+  <p align="right">
+    <img src="/images/forest.png", title="forest" width=400/>
+  </p>
+</span>
 
-## TODO
-- [x] Add screenshot to README.md
-- [x] add install script
-  - [ ] Should allow selection of search engine
-  - [x] Should allow for multiple columns
-  - [x] User makes a 'config.yaml' file that is parsed and translated into the HTML
-  - [x] Allow setting the font size in the config
-  - [ ] Install the update script into a `$PATH` directory
 
 ```yaml
 font_size: 15
