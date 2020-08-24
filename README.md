@@ -5,15 +5,17 @@ A terminal-style home page replicating the tree command.
   <img src="/images/StartTree.png", title="StartTree"/>
 </p>
 
-<span style="">
-  <p align="left">
-    <img src="/images/void.png", title="void" width=400/>
-  </p>
-
-  <p align="right">
-    <img src="/images/forest.png", title="forest" width=400/>
-  </p>
-</span>
+<div align="center">
+  <h1>
+    <a href="https://gideonwolfe.com/">
+        <img style="vertical-align:middle" src="/images/forest.png", width="400", />
+    </a>
+      <span style=""> 
+        <img style="vertical-align:middle" src="/images/void.png", width="400", />
+        </a>
+      </span>
+  </h1>
+</div>
 
 
 ```yaml
