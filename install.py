@@ -4,6 +4,7 @@ import yaml
 import os
 from os.path import expanduser
 from shutil import copyfile
+from bs4 import BeautifulSoup
 
 # get home directory
 home = expanduser("~")
@@ -14,6 +15,12 @@ config_path = home + '/.config/StartTree/config.yaml'
 
 # get cache path
 cache_dir = home + '/.cache/StartTree'
+
+def prettifyHTML():
+    html = "<div><h1>Hello</h1></div>"
+    soup = BeautifulSoup(html, 'html.parser')
+    prettyHTML = print(soup.prettify())
+    return prettyHTML
 
 def setup():
     # check if .config path exists
