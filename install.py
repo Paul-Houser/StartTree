@@ -68,10 +68,33 @@ def print_keys(dictionary):
         if isinstance(dictionary[key], dict):
             print_keys(dictionary[key])
 
-def gen_columns(html_file):
-    print("here")
+def gen_col_headers(html_file, file_dict):
+    for key in file_dict:
+        html_file.write("<li>\n")
+        html_file.write("  <h1>" + key + "</h1>\n")
+        html_file.write("  <ul>\n")
 
-def gen_html():
+        # generate list indices
+
+        html_file.write("  </ul>\n")
+        html_file.write("</li>\n")
+
+def gen_columns(html_file, file_dict):
+    for key in file_dict:
+        html_file.write("<div class=\"column\">\n")
+        html_file.write("  <div class=\"tree\">\n")
+        html_file.write("    <h1>.</h1>\n")
+        html_file.write("    <ul>\n")
+
+        # generate the column headers
+        gen_col_headers(html_file, file_dict[key])
+
+        html_file.write("    </ul>\n")
+        html_file.write("  </div>\n")
+        html_file.write("</div>\n")
+
+
+def gen_html(file_dict):
     print("Generating index.html...")
 
     # open files
@@ -81,8 +104,8 @@ def gen_html():
     # copy skeleton_html to cache_html until Column Start comment
     lines = skeleton_html.readlines()
     for line in lines:
-        if line == "<!-- Columns start -->":
-            gen_columns(cache_html)
+        if line == "<!-- Columns start -->\n":
+            gen_columns(cache_html, file_dict)
         else:
             cache_html.write(line)
 
@@ -92,7 +115,10 @@ def gen_html():
 
     print("Done!")
 
-if __name__ == '__main__':
+def main():
     setup()
     file_dict = parse_yaml()
-    gen_html()
+    gen_html(file_dict)
+
+if __name__ == '__main__':
+    main()
