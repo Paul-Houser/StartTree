@@ -1,0 +1,15 @@
+version: '3'
+services:
+
+  StartTree:
+    image: nginx
+    volumes:
+      - $HOME/.cache/wal/colors.css:/usr/share/nginx/html/colors.css # This needs to be changed depending on theme
+      - ./data/index.html:/usr/share/nginx/html/index.html
+      - ./data/style.css:/usr/share/nginx/html/style.css
+      - ./data/Hack.ttf:/usr/share/nginx/html/Hack.ttf
+    ports:
+    - "9876:80"
+    environment:
+    - NGINX_PORT=80
+    restart: unless-stopped
