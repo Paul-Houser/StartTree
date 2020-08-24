@@ -68,6 +68,10 @@ def print_keys(dictionary):
         if isinstance(dictionary[key], dict):
             print_keys(dictionary[key])
 
+def gen_list_indices(html_file, file_dict):
+    for key in file_dict:
+        print(key)
+
 def gen_col_headers(html_file, file_dict):
     for key in file_dict:
         html_file.write("<li>\n")
@@ -75,6 +79,7 @@ def gen_col_headers(html_file, file_dict):
         html_file.write("  <ul>\n")
 
         # generate list indices
+        gen_list_indices(html_file, file_dict)
 
         html_file.write("  </ul>\n")
         html_file.write("</li>\n")
