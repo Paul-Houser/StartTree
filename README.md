@@ -1,5 +1,5 @@
 # StartTree
-A terminal-style home page replicating the tree comand.
+A terminal-style home page replicating the tree command.
 
 <p align="center">
   <img src="/StartTree.png", title="StartTree"/>
