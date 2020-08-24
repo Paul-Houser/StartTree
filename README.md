@@ -15,6 +15,9 @@ A terminal-style home page replicating the tree command.
   - [ ] Install the update script into a `$PATH` directory
 
 ```yaml
+font_size: 15
+theme: void
+
 Tree_1:
   General:
     Google: "https://www.google.com/"
@@ -23,3 +26,9 @@ Tree_1:
     Homepage: "https://www.reddit.com/"
     Unixporn: "https://www.reddit.com/r/unixporn/"
 ```
+
+# Themes
+
+A variety of themes can be found in the `themes` directory. 
+
+If one wishes to dynamically theme from `pywal`, they may select `pywal` as their chosen theme in `config.yaml`.
