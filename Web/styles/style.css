@@ -113,6 +113,8 @@ input {
     border-width: 1px;
     border-color: var(--color12);
     border-style: solid;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 .column {
