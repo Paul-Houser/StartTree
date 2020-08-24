@@ -9,6 +9,10 @@ A terminal-style home page replicating the tree command.
   <img src="/images/void.png", title="void"/>
 </p>
 
+<p align="center">
+  <img src="/images/forest.png", title="forest"/>
+</p>
+
 ## TODO
 - [x] Add screenshot to README.md
 - [x] add install script
