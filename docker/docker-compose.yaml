@@ -4,10 +4,10 @@ services:
   StartTree:
     image: nginx
     volumes:
-      - $HOME/.cache/wal/colors.css:/usr/share/nginx/html/colors.css # This needs to be changed depending on theme
-      - ./data/index.html:/usr/share/nginx/html/index.html
-      - ./data/style.css:/usr/share/nginx/html/style.css
-      - ./data/Hack.ttf:/usr/share/nginx/html/Hack.ttf
+      - $HOME/.cache/StartTree/styles/colors.css:/usr/share/nginx/html/styles/colors.css # This needs to be changed depending on theme
+      - $HOME/.cache/StartTree/index.html:/usr/share/nginx/html/index.html
+      - $HOME/.cache/StartTree/styles/style_docker.css:/usr/share/nginx/html/styles/style.css
+      - $HOME/.cache/StartTree/styles/Hack.ttf:/usr/share/nginx/html/styles/Hack.ttf
     ports:
     - "9876:80"
     environment:
