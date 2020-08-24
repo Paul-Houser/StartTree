@@ -16,7 +16,7 @@
 }
 
 html {
-    font-size: 12px;
+    font-size: 22px;
 }
 
 body {
@@ -54,6 +54,7 @@ h1 {
 .tree > ul {
     margin: 0;
     padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 ul {
@@ -107,9 +108,11 @@ form h1 {
 input {
     font-family: var(--font);
     font-size: 1rem;
-    color: var(--foreground);
+    color: var(--color6);
     background-color: var(--background);
-    border: none;
+    border-width: 1px;
+    border-color: var(--color12);
+    border-style: solid;
 }
 
 .column {
