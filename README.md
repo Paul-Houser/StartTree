@@ -11,6 +11,8 @@ A terminal-style home page replicating the tree command.
   - [ ] Should allow selection of search engine
   - [x] Should allow for multiple columns
   - [x] User makes a 'config.yaml' file that is parsed and translated into the HTML
+  - [ ] Allow setting the font size in the config
+  - [ ] Install the update script into a `$PATH` directory
 
 ```yaml
 Tree_1:
