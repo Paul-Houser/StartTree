@@ -56,7 +56,7 @@ def gen_col_headers(html_file, file_dict):
 
 def gen_columns(html_file, file_dict):
     for key in file_dict:
-        if key == "tree":
+        if key.split("_")[0] == "tree":
             html_file.write("<div class=\"column\">\n")
             html_file.write("  <div class=\"tree\">\n")
             html_file.write("    <h1>.</h1>\n")
