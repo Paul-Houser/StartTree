@@ -98,9 +98,13 @@ def gen_html(file_dict):
 
     print("Done!")
 
+
+def gen_css(file_dict):
+
 def main():
     file_dict = parse_yaml()
     gen_html(file_dict)
+    gen_css(file_dict)
 
 if __name__ == '__main__':
     main()
