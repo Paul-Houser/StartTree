@@ -11,20 +11,20 @@ A terminal-style home page replicating the tree command.
   - [ ] Should allow selection of search engine
   - [x] Should allow for multiple columns
   - [x] User makes a 'config.yaml' file that is parsed and translated into the HTML
-  - [ ] Allow setting the font size in the config
+  - [x] Allow setting the font size in the config
   - [ ] Install the update script into a `$PATH` directory
 
 ```yaml
 font_size: 15
 theme: void
 
-Tree_1:
-  General:
-    Google: "https://www.google.com/"
-    Youtube: "https://www.youtube.com/"
-  Reddit:
-    Homepage: "https://www.reddit.com/"
-    Unixporn: "https://www.reddit.com/r/unixporn/"
+tree_1:
+  general:
+    google: "https://www.google.com/"
+    youtube: "https://www.youtube.com/"
+  reddit:
+    homepage: "https://www.reddit.com/"
+    unixporn: "https://www.reddit.com/r/unixporn/"
 ```
 
 # Themes
