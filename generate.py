@@ -117,7 +117,9 @@ def gen_style(file_dict):
     else:
         theme = '../themes/' + theme + '.css'
 
-    cache_style.write("@import url('" + theme + "');\n")
+    copyfile(theme, home + '/.cache/StartTree/styles/colors.css')
+
+    cache_style.write("@import url('./colors.css');\n")
 
     lines = skeleton_style.readlines()
     for line in lines:
