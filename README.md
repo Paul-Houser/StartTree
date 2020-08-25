@@ -20,7 +20,7 @@ A terminal-style home page replicating the tree command.
 # Usage
 ## Installation
 To install StartTree for the first time, run the following commands:  
-(Note: If the `~/.config/StartTree` directory already exists, `init.py` will not execute to prevent accidentally overwriting a custom config. )
+(Note: If the `~/.config/StartTree` directory already exists, `init.sh` will not copy the example config to prevent accidentally overwriting a custom config. )
 ```
 git clone https://github.com/Paul-Houser/StartTree.git
 cd StartTree
