@@ -24,7 +24,9 @@ To install StartTree for the first time, run the following commands:
 ```
 git clone https://github.com/Paul-Houser/StartTree.git
 cd StartTree
-./init.py
+chmod +x init.sh
+chmod +x generate.py
+./init.sh
 ./generate.py
 ```
 This will create the directory `~/.config/StartTree` containing the default `config.yaml`, as well as generate the html/css, which you can view by pointing your browser at `$HOME/.cache/StartTree/index.html`.
