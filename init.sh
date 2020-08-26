@@ -4,6 +4,8 @@ config_dir=$HOME/.config/StartTree
 config_path=$HOME/.config/StartTree/config.yaml
 cache_dir=$HOME/.cache/StartTree
 
+# install pip reqs
+echo "Downloading pip dependencies..."
 pip install --user bs4
 
 # check if .config path exists
@@ -53,3 +55,11 @@ cp "./skeletons/style.css" "$cache_dir/styles/style.css"
 
 echo "Creating Hack.ttf..."
 cp "./skeletons/Hack.ttf" "$cache_dir/styles/Hack.ttf"
+
+# add to path
+FILEPATH=$(readlink -f "generate.py")
+ln -s $FILEPATH $HOME/.local/bin/starttree.py
+echo "generate.py has been linked to $HOME/.local/bin/"
+echo "Make sure this directory is in your \$PATH"
+
+sed -i "/# replace line/{n;s@.*@repo_dir = \"$(pwd)\"@}" generate.py

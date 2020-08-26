@@ -9,6 +9,10 @@ from bs4 import BeautifulSoup
 # get home directory
 home = expanduser("~")
 
+# install script will fill this in
+# replace line
+repo_dir = "/home/paul/Documents/GitHub/StartTree"
+
 # get config path
 config_dir = home + '/.config/StartTree'
 config_path = home + '/.config/StartTree/config.yaml'
@@ -45,28 +49,28 @@ def gen_list_indices(html_file, file_dict):
 def gen_col_headers(html_file, file_dict):
     for key in file_dict:
         html_file.write("<li>\n")
-        html_file.write("  <h1>" + key + "</h1>\n")
-        html_file.write("  <ul>\n")
+        html_file.write("<h1>" + key + "</h1>\n")
+        html_file.write("<ul>\n")
 
         # generate list indices
         gen_list_indices(html_file, file_dict[key])
 
-        html_file.write("  </ul>\n")
+        html_file.write("</ul>\n")
         html_file.write("</li>\n")
 
 def gen_columns(html_file, file_dict):
     for key in file_dict:
         if key.split("_")[0] == "tree":
             html_file.write("<div class=\"column\">\n")
-            html_file.write("  <div class=\"tree\">\n")
-            html_file.write("    <h1>.</h1>\n")
-            html_file.write("    <ul>\n")
+            html_file.write("<div class=\"tree\">\n")
+            html_file.write("<h1>.</h1>\n")
+            html_file.write("<ul>\n")
 
             # generate the column headers
             gen_col_headers(html_file, file_dict[key])
 
-            html_file.write("    </ul>\n")
-            html_file.write("  </div>\n")
+            html_file.write("</ul>\n")
+            html_file.write("</div>\n")
             html_file.write("</div>\n")
 
 
@@ -74,7 +78,7 @@ def gen_html(file_dict):
     print("Generating index.html...")
 
     # open files
-    skeleton_html = open('./skeletons/index.html', 'r')
+    skeleton_html = open(repo_dir + '/skeletons/index.html', 'r')
     cache_html = open(cache_dir + '/index.html', 'w+')
 
     # copy skeleton_html to cache_html until Column Start comment
@@ -100,7 +104,7 @@ def gen_html(file_dict):
     print("Done!")
 
 def gen_style(file_dict):
-    skeleton_style = open('./skeletons/style.css', 'r')
+    skeleton_style = open(repo_dir + '/skeletons/style.css', 'r')
     cache_style = open(cache_dir + '/styles/style.css', 'w')
 
     # find style attributes in file_dict
