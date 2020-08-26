@@ -62,4 +62,7 @@ ln -s $FILEPATH $HOME/.local/bin/starttree.py
 echo "generate.py has been linked to $HOME/.local/bin/"
 echo "Make sure this directory is in your \$PATH"
 
+FILEPATH=$(readlink -f "docker/data/default.conf")
+ln -s $FILEPATH $HOME/.cache/StartTree/default.conf
+
 sed -i "/# replace line/{n;s@.*@repo_dir = \"$(pwd)\"@}" generate.py

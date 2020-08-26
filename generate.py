@@ -119,7 +119,7 @@ def gen_style(file_dict):
     if theme == "pywal":
         theme = home + '/.cache/wal/colors.css'
     else:
-        theme = './themes/' + theme + '.css'
+        theme = repo_dir + '/themes/' + theme + '.css'
 
     copyfile(theme, home + '/.cache/StartTree/styles/colors.css')
 
