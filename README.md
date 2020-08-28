@@ -29,13 +29,13 @@ chmod +x generate.py
 ./init.sh
 ./generate.py
 ```
-This will create the directory `~/.config/StartTree` containing the default `config.yaml`, as well as generate the html/css, which you can view by pointing your browser at `$HOME/.cache/StartTree/index.html`.
+This will create the directory `~/.config/StartTree` containing the default `config.yaml`, install `starttree.py` to your `$PATH`, as well as generate the html/css, which you can view by pointing your browser at `$HOME/.cache/StartTree/index.html`.
 
 ## Config
 The config should be placed in `~/.config/StartTree/config.yaml`
 
 ## Updating the HTML
-To re-generate the html/css after editing the config, navigate to the `StartTree` directory and execute `./generate.py`.
+To re-generate the html/css after editing the config, execute `starttree.py` from any directory.
 
 # Example Config
 ```yaml
