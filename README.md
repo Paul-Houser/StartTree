@@ -1,5 +1,5 @@
 # StartTree
-A terminal-style home page replicating the tree command.
+A terminal-style home page replicating the tree command, modified from [this](https://notabug.org/nytly/home) start page.
 
 <p align="center">
   <img src="/images/StartTree.png", title="StartTree"/>
