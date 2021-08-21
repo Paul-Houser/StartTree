@@ -80,7 +80,7 @@ vim docker-compose.yaml # edit specifics to your liking
 docker-compose -f docker-compose.yaml up -d
 ```
 
-This will make the `NGINX` server persist across reboots. You can point your browser's new tab and home page to `localhost:p<port#>` and you should your startpage!
+This will make the `NGINX` server persist across reboots. You can point your browser's new tab and home page to `localhost:p<port#>` and you should see your startpage!
 
 ### NOTE: 
 
