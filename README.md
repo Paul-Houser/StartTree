@@ -18,6 +18,9 @@ A terminal-style home page replicating the tree command, modified from [this](ht
 </div>
 
 # Usage
+## Requirements
+Requires the `bs4` python package.
+
 ## Installation
 To install StartTree for the first time, run the following commands:  
 (Note: If the `~/.config/StartTree` directory already exists, `init.sh` will not copy the example config to prevent accidentally overwriting a custom config. )
@@ -50,7 +53,7 @@ tree_1: # each column should be named 'tree_X' where X is unique for each tree.
     # or containing characters that cannot be in a yaml variable name.
     frontpage: 
       - "https://www.reddit.com/"
-      - "front page" # 
+      - "front page"
     unixporn: "https://www.reddit.com/r/unixporn/"
 tree_2:
   other:
@@ -80,10 +83,4 @@ vim docker-compose.yaml # edit specifics to your liking
 docker-compose -f docker-compose.yaml up -d
 ```
 
-This will make the `NGINX` server persist across reboots. You can point your browser's new tab and home page to `localhost:p<port#>` and you should see your startpage!
-
-### NOTE: 
-
-Currently, docker is unaware if a file changes on the fly (like generating a new colorscheme or adding new shortcuts), so you have to restart the container with
-
-`docker-compose -f docker-compose.yaml restart <servicename>`
+This will make the `NGINX` server persist across reboots. You can point your browser's new tab and home page to `localhost:<port#>` and you should see your startpage!

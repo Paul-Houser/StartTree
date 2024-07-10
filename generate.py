@@ -1,17 +1,12 @@
 #!/bin/python3
 
 import yaml
-import os
 from os.path import expanduser
 from shutil import copyfile
 from bs4 import BeautifulSoup
 
 # get home directory
 home = expanduser("~")
-
-# install script will fill this in
-# replace line
-repo_dir = "/home/paul/Documents/GitHub/StartTree"
 
 # get config path
 config_dir = home + '/.config/StartTree'
@@ -28,7 +23,6 @@ def prettifyHTML(html):
 def parse_yaml():
     with open(config_path, mode='r') as file:
         file_dict = yaml.full_load(file)
-        file.close()
     return file_dict
 
 def print_keys(dictionary):
@@ -78,7 +72,7 @@ def gen_html(file_dict):
     print("Generating index.html...")
 
     # open files
-    skeleton_html = open(repo_dir + '/skeletons/index.html', 'r')
+    skeleton_html = open(cache_dir + '/skeletons/index.html', 'r')
     cache_html = open(cache_dir + '/index.html', 'w+')
 
     # copy skeleton_html to cache_html until Column Start comment
@@ -104,7 +98,7 @@ def gen_html(file_dict):
     print("Done!")
 
 def gen_style(file_dict):
-    skeleton_style = open(repo_dir + '/skeletons/style.css', 'r')
+    skeleton_style = open(cache_dir + '/skeletons/style.css', 'r')
     cache_style = open(cache_dir + '/styles/style.css', 'w')
 
     # find style attributes in file_dict
@@ -119,7 +113,7 @@ def gen_style(file_dict):
     if theme == "pywal":
         theme = home + '/.cache/wal/colors.css'
     else:
-        theme = repo_dir + '/themes/' + theme + '.css'
+        theme = cache_dir + '/themes/' + theme + '.css'
 
     copyfile(theme, home + '/.cache/StartTree/styles/colors.css')
 

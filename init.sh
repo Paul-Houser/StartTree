@@ -4,10 +4,6 @@ config_dir=$HOME/.config/StartTree
 config_path=$HOME/.config/StartTree/config.yaml
 cache_dir=$HOME/.cache/StartTree
 
-# install pip reqs
-echo "Downloading pip dependencies..."
-pip install --user bs4
-
 # check if .config path exists
 if [ ! -d "$HOME/.config" ]; then
   echo "The directory '~/.config' does not exist, or you do not have permissions to edit it."
@@ -17,6 +13,12 @@ fi
 # check if .cache path exists
 if [ ! -d "$HOME/.cache" ]; then
   echo "The directory '~/.cache' does not exist, or you do not have permissions to edit it."
+  exit
+fi
+
+# check if .local/bin exists
+if [ ! -d "$HOME/.local/bin" ]; then
+  echo "The directory '~/.local/bin' does not exist, or you do not have permissions to edit it."
   exit
 fi
 
@@ -46,6 +48,9 @@ if [ ! -d "$cache_dir" ]; then
   echo "Symlinking themes..."
   ln -s $(pwd)/themes $HOME/.cache/StartTree/themes
 
+  echo "Symlinking skeleton files..."
+  ln -s $(pwd)/skeletons $HOME/.cache/StartTree/skeletons
+
   echo "Creating '$cache_dir/styles'..."
   mkdir "$cache_dir/styles"
 fi
@@ -64,5 +69,3 @@ echo "Make sure this directory is in your \$PATH"
 
 FILEPATH=$(readlink -f "docker/data/default.conf")
 ln -s $FILEPATH $HOME/.cache/StartTree/default.conf
-
-sed -i "/# replace line/{n;s@.*@repo_dir = \"$(pwd)\"@}" generate.py
